@@ -1,6 +1,14 @@
 "use client";
 import { useRef } from "react";
 
+// TIPOVI ZA PROPS - ovo je samo da TypeScript ne pravi problem!
+type SocialButtonProps = { link: string; label: string };
+type ServiceCardProps = { title: string; desc: string };
+type AiStepProps = { title: string; desc: string };
+type LogoImgProps = { src: string; alt: string };
+type ShowcaseCardProps = { title: string; url: string };
+type RefCardProps = { title: string; url: string; desc: string };
+
 export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null);
   const scrollToContact = () => contactRef.current && contactRef.current.scrollIntoView({ behavior: "smooth" });
@@ -113,13 +121,13 @@ export default function Home() {
   );
 }
 
-/* COMPONENTS */
-function SocialButton({ link, label }) {
+// Komponente sa prop tipovima za TypeScript
+function SocialButton({ link, label }: SocialButtonProps) {
   return (
     <a href={link} target="_blank" rel="noopener noreferrer" className="btn">{label}</a>
   );
 }
-function ServiceCard({ title, desc }) {
+function ServiceCard({ title, desc }: ServiceCardProps) {
   return (
     <div className="card">
       <div className="text-lg font-bold text-[#34c5fd] mb-1">{title}</div>
@@ -127,7 +135,7 @@ function ServiceCard({ title, desc }) {
     </div>
   );
 }
-function AiStep({ title, desc }) {
+function AiStep({ title, desc }: AiStepProps) {
   return (
     <li className="card flex flex-col gap-1">
       <span className="font-semibold text-[#27c7f6]">{title}</span>
@@ -135,12 +143,12 @@ function AiStep({ title, desc }) {
     </li>
   );
 }
-function LogoImg({ src, alt }) {
+function LogoImg({ src, alt }: LogoImgProps) {
   return (
     <img src={src} alt={alt} className="h-10 w-auto rounded-xl bg-[#1a2746] p-1 shadow" style={{maxWidth:70}} />
   );
 }
-function ShowcaseCard({ title, url }) {
+function ShowcaseCard({ title, url }: ShowcaseCardProps) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="card w-52 h-28 flex flex-col justify-center items-center hover:bg-[#122441] transition">
       <div className="font-bold text-[#40bfff] mb-2">{title}</div>
@@ -148,7 +156,7 @@ function ShowcaseCard({ title, url }) {
     </a>
   );
 }
-function RefCard({ title, url, desc }) {
+function RefCard({ title, url, desc }: RefCardProps) {
   return (
     <div className="card flex flex-col items-start">
       <div className="font-bold text-[#27c7f6] mb-1">{title}</div>
