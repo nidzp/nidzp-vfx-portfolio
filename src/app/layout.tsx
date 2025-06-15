@@ -1,18 +1,14 @@
-import "./globals.css";
+import './globals.css';
 
 export const metadata = {
-  title: "NIDZP | Elite Video Editor & Creative Producer",
-  description: "Elite video editing, production, and creative services. Fastest delivery, world-class results. Book now.",
+  title: 'NDZP | Elite Video Editor & Producer',
+  description: 'Brutal workflow. Max results. Global quality. No gimmicks.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#0b1220] text-[#e5f6ff]">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
