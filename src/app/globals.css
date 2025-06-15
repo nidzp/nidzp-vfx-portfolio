@@ -2,112 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .btn {
-    @apply bg-[#223a53] text-[#38d4f7] font-bold rounded-full px-6 py-2 hover:bg-[#32d8fc] hover:text-[#111a22] transition shadow-lg;
-  }
-  .footer {
-    @apply text-[#47c7f7] text-base py-6 bg-transparent;
-  }
-}
+/* === BRUTALNI GLOBAL STILOVI === */
 
-
-/* Extra custom class for section titles */
-.section-title {
-  @apply text-[#3ec6ff] text-2xl font-bold mb-6 tracking-wider text-center;
-}
-.btn {
-  @apply bg-[#223a53] text-[#38d4f7] font-semibold rounded-full px-6 py-2 hover:bg-[#2a5070] transition shadow;
-}
-.card {
-  @apply rounded-xl bg-[#181e2f] shadow-lg p-4;
-}
-.footer {
-  @apply text-[#47c7f7] text-base py-6 bg-transparent;
-}
-
+/* Main background */
 body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: linear-gradient(160deg, #10152a 0%, #161e36 70%, #0d1b2a 100%);
-  color: #e6f1fa;
-  min-height: 100vh;
+  @apply bg-gradient-to-b from-[#090b18] via-[#0a1020] to-[#111622] text-slate-100 min-h-screen;
+  font-family: system-ui, sans-serif;
+  font-size: 17px;
   letter-spacing: 0.01em;
-  scroll-behavior: smooth;
 }
 
+/* Custom scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
-  background: #121c31;
+  background: #101625;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2ed1f7 20%, #142139 100%);
-  border-radius: 7px;
+  background: linear-gradient(180deg,#283559,#111c35 70%);
+  border-radius: 6px;
 }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #3ec6ff;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.8rem;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-extrabold text-blue-200 tracking-wide drop-shadow-xl;
+  letter-spacing: 0.04em;
 }
 
+h1 { @apply text-4xl md:text-5xl mb-6 mt-3 text-blue-400; }
+h2 { @apply text-3xl md:text-4xl mb-4 mt-4 text-blue-300; }
+h3 { @apply text-2xl mb-2 mt-3 text-blue-200; }
+
+/* Paragraphs */
+p {
+  @apply text-slate-200/90 leading-relaxed mb-4;
+  font-size: 1.1rem;
+}
+
+/* Links */
 a {
-  color: #40bfff;
-  text-underline-offset: 2px;
-  transition: color .2s;
+  @apply text-blue-400 underline underline-offset-2 transition duration-200;
 }
 a:hover {
-  color: #82e0ff;
+  @apply text-blue-200 scale-105 drop-shadow;
 }
 
+/* Buttons */
+button, .btn {
+  @apply px-6 py-2 rounded-xl bg-blue-800 text-white font-bold shadow-md hover:bg-blue-700 transition duration-200;
+}
+
+/* Fade-in animacija za svaki element */
+.fade-in {
+  animation: fadeIn 1.4s cubic-bezier(.23,1.01,.68,1.04) both;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(60px) scale(.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animacija za sekcije koje ulaze u viewport */
+.section-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all .9s cubic-bezier(.26,1,.48,1);
+}
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card stilovi */
 .card {
-  background: rgba(16,24,48,0.92);
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 22px #17345713, 0 1px 5px #21bfff21;
-  padding: 1.5rem 1.1rem;
-  margin-bottom: 1.5rem;
+  @apply bg-gradient-to-br from-[#191d2a] to-[#131728] rounded-2xl shadow-2xl p-7 border border-blue-900/40;
 }
 
-.btn {
-  background: linear-gradient(90deg, #2ed1f7 20%, #259dff 100%);
-  color: #fff;
-  border-radius: 2rem;
-  padding: 0.75rem 2.1rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin: 0.4rem;
-  box-shadow: 0 2px 14px #1be9ff23;
-  transition: all .18s;
-  border: none;
-  outline: none;
-  display: inline-block;
-}
-.btn:hover {
-  background: linear-gradient(90deg, #259dff 10%, #2ed1f7 100%);
-  color: #d4f6ff;
-  box-shadow: 0 4px 22px #18c9ff54;
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; }
+  .card { padding: 1.2rem }
+  body { font-size: 16px; }
 }
 
-.footer {
-  font-size: .98rem;
-  color: #4db5e8;
-  background: #161e36;
-  letter-spacing: .09em;
-  padding: 2.1rem 0 1.1rem;
+/* Video showcase styling */
+.showcase-video {
+  @apply rounded-xl shadow-lg my-8 border border-blue-700/40 bg-[#10192c] mx-auto;
+  box-shadow: 0 0 34px 0 #2e3658aa;
+  max-width: 530px;
+  width: 100%;
+  display: block;
 }
 
-@media (max-width: 600px) {
-  .section-title {
-    font-size: 1.25rem;
-    margin-bottom: 1.2rem;
-  }
-  .card {
-    padding: 1.1rem 0.7rem;
-    margin-bottom: 1rem;
-  }
-  .btn {
-    padding: 0.62rem 1.2rem;
-    font-size: .97rem;
-  }
+/* Listovi */
+ul {
+  @apply list-disc pl-6 mb-3 text-blue-100/80;
+}
+li {
+  @apply mb-1;
 }
