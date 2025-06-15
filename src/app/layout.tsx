@@ -1,8 +1,9 @@
-import './globals.css';
+import "./globals.css";
 
 export const metadata = {
-  title: 'NDZP | Elite Video Editor & Producer',
-  description: 'Brutal workflow. Max results. Global quality. No gimmicks.',
+  title: "NDZP.VFX | Elite VFX, Anime & AI Video Editor",
+  description:
+    "Professional & Serbian VFX, Anime, AI video edits for TikTok, YouTube, Instagram, and global brands. Instant delivery. Brutal workflow. No gimmicks.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* === BRUTALNI GLOBAL STILOVI === */
-
-/* Main background */
 body {
   @apply bg-gradient-to-b from-[#090b18] via-[#0a1020] to-[#111622] text-slate-100 min-h-screen;
   font-family: system-ui, sans-serif;
