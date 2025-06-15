@@ -2,99 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom font-family, fallback */
 body {
-  @apply bg-gradient-to-b from-[#090b18] via-[#0a1020] to-[#111622] text-slate-100 min-h-screen;
-  font-family: system-ui, sans-serif;
-  font-size: 17px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background: #0b1220;
+  color: #e5f6ff;
   letter-spacing: 0.01em;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/* Custom scroll bar */
+/* Scrollbar for desktop */
 ::-webkit-scrollbar {
-  width: 10px;
-  background: #101625;
+  width: 9px;
+  background: #101828;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg,#283559,#111c35 70%);
-  border-radius: 6px;
+  background: #35d0fcbb;
+  border-radius: 9px;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-extrabold text-blue-200 tracking-wide drop-shadow-xl;
-  letter-spacing: 0.04em;
+/* Reusable btn class */
+.btn {
+  @apply inline-block px-5 py-2 rounded-xl bg-[#101828] border-2 border-[#38d4f7] text-[#41c8fc] font-bold shadow-md hover:bg-[#212f3d] hover:text-[#83e5fc] hover:scale-105 duration-200 transition-all;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
-h1 { @apply text-4xl md:text-5xl mb-6 mt-3 text-blue-400; }
-h2 { @apply text-3xl md:text-4xl mb-4 mt-4 text-blue-300; }
-h3 { @apply text-2xl mb-2 mt-3 text-blue-200; }
-
-/* Paragraphs */
-p {
-  @apply text-slate-200/90 leading-relaxed mb-4;
-  font-size: 1.1rem;
+/* Footer */
+.footer {
+  color: #7ddff9;
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
-/* Links */
-a {
-  @apply text-blue-400 underline underline-offset-2 transition duration-200;
-}
-a:hover {
-  @apply text-blue-200 scale-105 drop-shadow;
-}
-
-/* Buttons */
-button, .btn {
-  @apply px-6 py-2 rounded-xl bg-blue-800 text-white font-bold shadow-md hover:bg-blue-700 transition duration-200;
-}
-
-/* Fade-in animacija za svaki element */
-.fade-in {
-  animation: fadeIn 1.4s cubic-bezier(.23,1.01,.68,1.04) both;
-}
-
+/* Animate-fadeIn keyframes */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(60px) scale(.97); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fadeIn {
+  animation: fadeIn 1.3s cubic-bezier(.37,.01,.63,1.01) both;
 }
 
-/* Animacija za sekcije koje ulaze u viewport */
-.section-fade {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all .9s cubic-bezier(.26,1,.48,1);
+/* Responsive rounded corners */
+.rounded-3xl {
+  border-radius: 1.5rem !important;
 }
-.section-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
+.shadow-2xl {
+  box-shadow: 0 6px 64px #35d0fc44, 0 1.5px 9px #000a !important;
 }
 
-/* Card stilovi */
-.card {
-  @apply bg-gradient-to-br from-[#191d2a] to-[#131728] rounded-2xl shadow-2xl p-7 border border-blue-900/40;
-}
-
-/* Responsive tweaks */
-@media (max-width: 700px) {
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.6rem; }
-  .card { padding: 1.2rem }
-  body { font-size: 16px; }
-}
-
-/* Video showcase styling */
-.showcase-video {
-  @apply rounded-xl shadow-lg my-8 border border-blue-700/40 bg-[#10192c] mx-auto;
-  box-shadow: 0 0 34px 0 #2e3658aa;
-  max-width: 530px;
-  width: 100%;
-  display: block;
-}
-
-/* Listovi */
-ul {
-  @apply list-disc pl-6 mb-3 text-blue-100/80;
-}
-li {
-  @apply mb-1;
+/* Remove blue tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
