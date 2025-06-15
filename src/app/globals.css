@@ -1,19 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@layer utilities {
-  .section-title {
-    @apply text-[#3ec6ff] text-2xl font-bold mb-6 tracking-wider text-center;
-  }
-  .btn {
-    @apply bg-[#223a53] text-[#38d4f7] font-semibold rounded-full px-6 py-2 hover:bg-[#2a5070] transition shadow;
-  }
-  .card {
-    @apply rounded-xl bg-[#181e2f] shadow-lg p-4;
-  }
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply bg-[#223a53] text-[#38d4f7] font-bold rounded-full px-6 py-2 hover:bg-[#32d8fc] hover:text-[#111a22] transition shadow-lg;
+  }
+  .footer {
+    @apply text-[#47c7f7] text-base py-6 bg-transparent;
+  }
+}
+
+
+/* Extra custom class for section titles */
+.section-title {
+  @apply text-[#3ec6ff] text-2xl font-bold mb-6 tracking-wider text-center;
+}
+.btn {
+  @apply bg-[#223a53] text-[#38d4f7] font-semibold rounded-full px-6 py-2 hover:bg-[#2a5070] transition shadow;
+}
+.card {
+  @apply rounded-xl bg-[#181e2f] shadow-lg p-4;
+}
+.footer {
+  @apply text-[#47c7f7] text-base py-6 bg-transparent;
+}
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
