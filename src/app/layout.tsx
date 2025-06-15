@@ -1,14 +1,21 @@
-import "./globals.css";
+// app/layout.tsx
+import './globals.css'
+import { Metadata } from 'next'
 
-export const metadata = {
-  title: "NDZP.VFX | Elite VFX, Anime & AI Video Editor",
-  description: "Professional & Serbian VFX, Anime, AI video edits for TikTok, YouTube, Instagram, and global brands. Instant delivery. Brutal workflow. No gimmicks.",
-};
+export const metadata: Metadata = {
+  title: 'NIDZP.VFX Portfolio',
+  description: 'High-end anime-inspired VFX edits by nidzp.vfx',
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
+      <head />
       <body>{children}</body>
     </html>
-  );
+  )
 }
