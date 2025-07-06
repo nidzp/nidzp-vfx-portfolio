@@ -70,15 +70,15 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-bg text-main font-sans flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-20 w-full bg-bg/90 backdrop-blur border-b border-border flex items-center justify-between px-5 py-3">
-        <span className="text-2xl md:text-3xl font-extrabold tracking-tighter uppercase select-none">
+      <header className="sticky top-0 z-20 w-full bg-bg/90 backdrop-blur border-b border-border flex items-center justify-between px-4 py-3 md:px-8">
+        <span className="text-xl md:text-3xl font-extrabold tracking-tighter uppercase select-none">
           NDZP.VFX
         </span>
-        <nav className="flex items-center gap-8 text-base">
+        <nav className="flex items-center gap-4 md:gap-8 text-sm md:text-base">
           <a href="#works" className="hover:text-accent transition">{text[lang].works}</a>
           <a href="#contact" className="hover:text-accent transition">{text[lang].contact}</a>
           <button
-            className="ml-5 px-4 py-1 border border-accent rounded-lg text-accent font-bold hover:bg-bg2 transition"
+            className="ml-3 px-3 py-1 border border-accent rounded-lg text-accent font-bold hover:bg-bg2 transition"
             onClick={() => setLang(lang === "en" ? "sr" : "en")}
           >
             {text[lang].srpski}
@@ -87,18 +87,22 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="flex-1 w-full flex flex-col items-center justify-center text-center mt-20 mb-8 px-2">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-3 tracking-tight uppercase">{text[lang].headline}</h1>
-        <div className="text-xl md:text-2xl text-accent mb-2 font-medium tracking-wide">{text[lang].sub}</div>
-        <p className="max-w-xl text-lg md:text-xl text-desc mb-8">{text[lang].about}</p>
-        <div className="flex flex-wrap gap-4 justify-center">
+      <section className="flex-1 w-full flex flex-col items-center justify-center text-center mt-10 mb-6 px-4 md:px-0">
+        <h1 className="text-2xl md:text-5xl font-extrabold mb-2 md:mb-4 tracking-tight uppercase leading-tight">
+          {text[lang].headline}
+        </h1>
+        <div className="text-base md:text-2xl text-accent mb-1 md:mb-2 font-medium tracking-wide">
+          {text[lang].sub}
+        </div>
+        <p className="max-w-xl text-sm md:text-xl text-desc mb-6 md:mb-8">{text[lang].about}</p>
+        <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center w-full md:w-auto">
           {links.map(link => (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-xl border-2 border-accent text-accent font-bold hover:bg-bg2 hover:text-accent2 transition shadow"
+              className="w-full sm:w-auto px-4 py-2 rounded-xl border-2 border-accent text-accent font-bold hover:bg-bg2 hover:text-accent2 transition shadow text-sm md:text-base text-center"
             >
               {link.name}
             </a>
@@ -107,57 +111,57 @@ export default function Home() {
       </section>
 
       {/* Results */}
-      <section className="w-full max-w-3xl mx-auto mb-10 px-3" id="results">
-        <h2 className="text-2xl font-bold mb-3">{text[lang].results}</h2>
-        <ul className="text-base md:text-lg space-y-1 text-desc">
+      <section className="w-full max-w-2xl mx-auto mb-8 px-4" id="results">
+        <h2 className="text-lg md:text-2xl font-bold mb-2 md:mb-3">{text[lang].results}</h2>
+        <ul className="text-xs md:text-lg space-y-1 text-desc">
           {text[lang].resultsList.map((r, i) => <li key={i}>{r}</li>)}
         </ul>
       </section>
 
       {/* Why */}
-      <section className="w-full max-w-3xl mx-auto mb-10 px-3">
-        <h2 className="text-2xl font-bold mb-3">{text[lang].why}</h2>
-        <ul className="text-base md:text-lg space-y-1 text-desc">
+      <section className="w-full max-w-2xl mx-auto mb-10 px-4">
+        <h2 className="text-lg md:text-2xl font-bold mb-2 md:mb-3">{text[lang].why}</h2>
+        <ul className="text-xs md:text-lg space-y-1 text-desc">
           {text[lang].whyList.map((w, i) => <li key={i}>{w}</li>)}
         </ul>
       </section>
 
       {/* Showcase */}
-      <section className="w-full max-w-5xl mx-auto mb-14 px-3" id="works">
-        <h3 className="text-xl font-bold mb-6 text-center">{text[lang].showcase}</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Primer 1 */}
-          <div className="rounded-2xl shadow-2xl bg-bg2 overflow-hidden p-4 flex flex-col items-center">
+      <section className="w-full max-w-3xl mx-auto mb-14 px-4" id="works">
+        <h3 className="text-base md:text-xl font-bold mb-5 md:mb-6 text-center">{text[lang].showcase}</h3>
+        <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2">
+          {/* Example 1 */}
+          <div className="rounded-2xl shadow-2xl bg-bg2 overflow-hidden p-3 md:p-4 flex flex-col items-center">
             <video
-              className="rounded-xl w-full mb-3"
+              className="rounded-xl w-full mb-2 md:mb-3"
               controls
               poster="/poster.jpg"
             >
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
               Showreel
             </video>
-            <span className="text-lg font-bold text-accent">Showreel 2024</span>
+            <span className="text-base md:text-lg font-bold text-accent">Showreel 2024</span>
           </div>
-          {/* Primer 2 */}
-          <div className="rounded-2xl shadow-2xl bg-bg2 overflow-hidden p-4 flex flex-col items-center">
+          {/* Example 2 */}
+          <div className="rounded-2xl shadow-2xl bg-bg2 overflow-hidden p-3 md:p-4 flex flex-col items-center">
             <video
-              className="rounded-xl w-full mb-3"
+              className="rounded-xl w-full mb-2 md:mb-3"
               controls
               poster="/poster.jpg"
             >
               <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
               Client Edit
             </video>
-            <span className="text-lg font-bold text-accent">Brand Edit Example</span>
+            <span className="text-base md:text-lg font-bold text-accent">Brand Edit Example</span>
           </div>
         </div>
-        <div className="text-xs text-accent2 mt-4 text-center">
+        <div className="text-xs text-accent2 mt-3 md:mt-4 text-center">
           {text[lang].addYourReel}
         </div>
       </section>
 
       {/* Kontakt / Footer */}
-      <footer id="contact" className="w-full py-6 text-center text-sm text-accent2 border-t border-border mt-auto">
+      <footer id="contact" className="w-full py-5 text-center text-xs md:text-sm text-accent2 border-t border-border mt-auto">
         {text[lang].footer}
       </footer>
     </main>
